@@ -14,20 +14,60 @@ type Pages = {
   "/": {
     params: {};
   };
+  "/test": {
+    params: {};
+  };
+  "/dashboard": {
+    params: {};
+  };
+  "/dashboard/analyze": {
+    params: {};
+  };
+  "/guardian": {
+    params: {};
+  };
+  "/auth": {
+    params: {};
+  };
 };
 
 type RouteFiles = {
   "root.tsx": {
     id: "root";
-    page: "/";
+    page: "/" | "/test" | "/dashboard" | "/dashboard/analyze" | "/guardian" | "/auth";
   };
   "routes/home.tsx": {
     id: "routes/home";
     page: "/";
+  };
+  "routes/test.tsx": {
+    id: "routes/test";
+    page: "/test";
+  };
+  "routes/dashboard.tsx": {
+    id: "routes/dashboard";
+    page: "/dashboard";
+  };
+  "routes/restaurant-analysis.tsx": {
+    id: "routes/restaurant-analysis";
+    page: "/dashboard/analyze";
+  };
+  "routes/guardian.tsx": {
+    id: "routes/guardian";
+    page: "/guardian";
+  };
+  "routes/auth.tsx": {
+    id: "routes/auth";
+    page: "/auth";
   };
 };
 
 type RouteModules = {
   "root": typeof import("./app/root.tsx");
   "routes/home": typeof import("./app/routes/home.tsx");
+  "routes/test": typeof import("./app/routes/test.tsx");
+  "routes/dashboard": typeof import("./app/routes/dashboard.tsx");
+  "routes/restaurant-analysis": typeof import("./app/routes/restaurant-analysis.tsx");
+  "routes/guardian": typeof import("./app/routes/guardian.tsx");
+  "routes/auth": typeof import("./app/routes/auth.tsx");
 };
