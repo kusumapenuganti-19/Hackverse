@@ -16,10 +16,12 @@ export default function Dashboard() {
 
   useEffect(() => {
     const tab = searchParams.get("tab");
-    if (tab === "analyzer") {
+    if (tab === "analyzer" || tab === "bookings") {
       setActiveTab("bookings");
     } else if (tab === "guardian") {
       navigate("/guardian");
+    } else if (tab && ["food", "travel", "saved"].includes(tab)) {
+      setActiveTab(tab);
     }
   }, [searchParams, navigate]);
 

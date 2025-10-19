@@ -6,9 +6,14 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
+import { ConvexAuthProvider } from "@convex-dev/auth/react";
+import { ConvexReactClient } from "convex/react";
+import { Toaster } from "@/components/ui/sonner";
 
 import type { Route } from "./+types/root";
 import "./app.css";
+
+const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL || "https://placeholder.convex.cloud");
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -33,7 +38,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
+        <ConvexAuthProvider client={convex}>
+          {children}
+          <Toaster />
+        </ConvexAuthProvider>
         <ScrollRestoration />
         <Scripts />
       </body>

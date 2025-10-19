@@ -29,12 +29,17 @@ type Pages = {
   "/auth": {
     params: {};
   };
+  "/*": {
+    params: {
+      "*": string;
+    };
+  };
 };
 
 type RouteFiles = {
   "root.tsx": {
     id: "root";
-    page: "/" | "/test" | "/dashboard" | "/dashboard/analyze" | "/guardian" | "/auth";
+    page: "/" | "/test" | "/dashboard" | "/dashboard/analyze" | "/guardian" | "/auth" | "/*";
   };
   "routes/home.tsx": {
     id: "routes/home";
@@ -60,6 +65,10 @@ type RouteFiles = {
     id: "routes/auth";
     page: "/auth";
   };
+  "routes/404.tsx": {
+    id: "routes/404";
+    page: "/*";
+  };
 };
 
 type RouteModules = {
@@ -70,4 +79,5 @@ type RouteModules = {
   "routes/restaurant-analysis": typeof import("./app/routes/restaurant-analysis.tsx");
   "routes/guardian": typeof import("./app/routes/guardian.tsx");
   "routes/auth": typeof import("./app/routes/auth.tsx");
+  "routes/404": typeof import("./app/routes/404.tsx");
 };

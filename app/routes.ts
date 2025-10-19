@@ -7,4 +7,5 @@ export default [
   route("dashboard/analyze", "routes/restaurant-analysis.tsx"),
   route("guardian", "routes/guardian.tsx"),
   route("auth", "routes/auth.tsx"),
+  route("*", "routes/404.tsx"),
 ] satisfies RouteConfig;

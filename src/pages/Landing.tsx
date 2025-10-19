@@ -187,7 +187,7 @@ export default function Landing() {
             <Button
               size="lg"
               variant="outline"
-              onClick={() => navigate("/dashboard?tab=analyzer")}
+              onClick={() => navigate("/dashboard?tab=bookings")}
               className="text-lg px-10 py-6 h-auto rounded-xl shadow-lg hover:shadow-xl transition-all group"
             >
               <TrendingDown className="mr-2 h-5 w-5" />
